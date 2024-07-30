@@ -15,6 +15,21 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+  lint:
+    runs-on: ubunt-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v4
+
+      - name: Run lint
+        run: gradlew lintDebug
+
+      - name: Upload html test report
+        uses: actions/upload-artifact@v4
+        with:
+          name: index.html
+          path: app/build/reports/lint-results-debug.html
+
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
