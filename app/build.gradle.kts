@@ -3,6 +3,10 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
 }
 
+task("helloworld") {
+    println("Hello configuration phase task! ${this.name}")
+}
+
 android {
     namespace = "com.example.cicdsample"
     compileSdk = 34
@@ -67,3 +71,4 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 }
+

@@ -35,6 +35,23 @@ jobs:
           name: index.html
           path: app/build/reports/lint-results-debug.html
 
+  unit-test:
+    needs: [lint]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: action/checkout@v2
+
+      - name: Run tests
+        run: ./gradlew test
+
+
+      - name: Run tests
+        run: ./gradlew test
+        with:
+          name: unit_test_report
+          path: app/build/reports/tests/testDebugUnitTest/
+
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
