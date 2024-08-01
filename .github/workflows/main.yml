@@ -26,6 +26,7 @@ jobs:
         with:
             java-version: 17
             distribution: "temurin"
+
       - name: Run lint
         run: ./gradlew lintDebug
 
@@ -44,7 +45,6 @@ jobs:
 
       - name: Run tests
         run: ./gradlew test
-
 
       - name: Upload test report
         uses: actions/upload-artifact@v4
